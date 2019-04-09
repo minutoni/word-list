@@ -26,6 +26,9 @@
                                 <state key="normal" title="Push Start!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="startButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="ACw-yo-Kak"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJe-NP-PKk">
                                 <rect key="frame" x="139" y="578" width="97" height="42"/>
@@ -51,12 +54,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="125.4872563718141"/>
+            <point key="canvasLocation" x="-234" y="35"/>
         </scene>
         <!--一覧-->
         <scene sceneID="QfO-p0-Oe9">
             <objects>
-                <tableViewController id="LyZ-kf-F8t" sceneMemberID="viewController">
+                <tableViewController id="LyZ-kf-F8t" customClass="ListTableViewController" customModule="word_list" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ROQ-l3-fW6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,7 +80,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="一覧" id="QUR-Db-Zfk">
-                        <barButtonItem key="leftBarButtonItem" title="もどる" id="fVO-dI-Ycd"/>
+                        <barButtonItem key="leftBarButtonItem" title="もどる" id="fVO-dI-Ycd">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="sNI-Oo-TNk"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="oDb-xZ-6uf">
                             <connections>
                                 <segue destination="Sf1-En-olE" kind="show" id="ASi-1W-90R"/>
@@ -92,13 +99,13 @@
         <!--新規追加-->
         <scene sceneID="9SS-SI-wqX">
             <objects>
-                <viewController id="Sf1-En-olE" sceneMemberID="viewController">
+                <viewController id="Sf1-En-olE" customClass="AddViewController" customModule="word_list" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="guq-nO-oMX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV8-1S-Q09">
-                                <rect key="frame" x="52" y="230" width="57" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="英語" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV8-1S-Q09">
+                                <rect key="frame" x="52" y="230" width="49" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -111,8 +118,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qvo-v8-v1c">
-                                <rect key="frame" x="50" y="369" width="57" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日本語" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qvo-v8-v1c">
+                                <rect key="frame" x="50" y="369" width="73" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -130,17 +137,25 @@
                         <viewLayoutGuide key="safeArea" id="CL5-Af-rGX"/>
                     </view>
                     <navigationItem key="navigationItem" title="新規追加" id="Yzj-X8-SWS">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="jRx-2j-41X"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="jRx-2j-41X">
+                            <connections>
+                                <action selector="saveWord" destination="Sf1-En-olE" id="2RD-sm-FOT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="englishTextField" destination="ZC7-HC-aI9" id="Pkt-8A-MHP"/>
+                        <outlet property="japaneseTextField" destination="sYa-iP-gnm" id="cmq-DG-7RR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hed-QW-J8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1502" y="807"/>
         </scene>
-        <!--View Controller-->
+        <!--Question View Controller-->
         <scene sceneID="OIO-dk-Ijr">
             <objects>
-                <viewController id="3JT-Y8-Bqo" sceneMemberID="viewController">
+                <viewController id="3JT-Y8-Bqo" customClass="QuestionViewController" customModule="word_list" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VIF-7V-OsM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,14 +178,14 @@
                                 <color key="backgroundColor" red="0.089835106710000001" green="0.74935233160000003" blue="0.19038964990000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyl-Tr-TAV">
-                                <rect key="frame" x="115" y="237" width="42" height="21"/>
+                                <rect key="frame" x="101" y="203" width="159" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhp-zp-nqx">
-                                <rect key="frame" x="218" y="404" width="42" height="21"/>
+                                <rect key="frame" x="160" y="375" width="158" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -184,20 +199,29 @@
                                 <state key="normal" title="答えを表示">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextButtonTapped" destination="3JT-Y8-Bqo" eventType="touchUpInside" id="Y2N-D0-ewD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.089835106710000001" green="0.74935233160000003" blue="0.19038964990000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ZOw-mF-Bxo"/>
                     </view>
+                    <connections>
+                        <outlet property="answerLabel" destination="dhp-zp-nqx" id="bFu-0Q-r9h"/>
+                        <outlet property="nextButton" destination="yXy-yy-NEO" id="LeC-sw-wD5"/>
+                        <outlet property="questionLabel" destination="gyl-Tr-TAV" id="taf-zC-Iew"/>
+                        <segue destination="4xv-BX-0tS" kind="presentation" identifier="toFinishView" id="li8-YP-eFh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvh-Dg-kkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="818.39999999999998" y="125.4872563718141"/>
         </scene>
-        <!--View Controller-->
+        <!--Finish View Controller-->
         <scene sceneID="Yob-AQ-UVX">
             <objects>
-                <viewController id="4xv-BX-0tS" sceneMemberID="viewController">
+                <viewController id="4xv-BX-0tS" customClass="FinishViewController" customModule="word_list" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mih-eZ-o0B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,6 +238,9 @@
                                 <state key="normal" title="はじめに戻る">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ZYk-J8-bFq" kind="unwind" unwindAction="backWithSegue:" id="RQm-MV-Nob"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.089835106710000001" green="0.74935233160000003" blue="0.19038964990000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -221,6 +248,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebu-PC-gV7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ZYk-J8-bFq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1501.5999999999999" y="126.38680659670166"/>
         </scene>
