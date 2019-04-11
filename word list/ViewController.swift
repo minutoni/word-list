@@ -19,6 +19,10 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func back2(segue:UIStoryboardSegue){
+        
+    }
+    
     @IBAction func startButtonTapped(){
         let saveData = UserDefaults.standard
         

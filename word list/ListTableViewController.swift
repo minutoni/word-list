@@ -31,8 +31,6 @@ class ListTableViewController: UITableViewController {
         super.viewWillAppear(true)
         if saveData.array(forKey: "WORD") != nil {
             wordArray = saveData.array(forKey: "WORD") as! [Dictionary<String,String>]
-            
-            
         }
         tableView.reloadData()
     }

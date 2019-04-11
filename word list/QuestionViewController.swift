@@ -24,7 +24,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         answerLabel.text = ""
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -39,7 +39,7 @@ class QuestionViewController: UIViewController {
         
     }
     
-
+    
     func shuffle(){
         while wordArray.count > 0 {
             let index = Int(arc4random()) % wordArray.count
@@ -68,21 +68,21 @@ class QuestionViewController: UIViewController {
             }
         }else{
             //答えを表示する
-            answerLabel.text = shuffledWordArray[nowNumber]["Japanese"]
+            answerLabel.text = shuffledWordArray[nowNumber]["japanese"]
             //isAnsweredをtrueにする
             isAnswered = true
             //ボタンのタイトルを変更する
             nextButton.setTitle("次へ", for: .normal)
-            }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+}
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
 
